@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.item 
+{
+    height: 350px;
+    width: 16%;
+}
+.item img
+{
+    height: 100%;
+    width: 100%;
+}
+.popular
+{
+    margin-left: 42%;
+}
+.hr-popular{
+    width: 150px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: black;
+    border: none;
+    margin-left: 60px;
+}
+.offers
+{
+    margin-left: 47%;
+}
+.hr-offers{
+    width: 70px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: black;
+    border: none;
+    margin-left: 20px;
+}
+.cart 
+{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+    padding: 20px 0;
+    
+}
