@@ -1,6 +1,5 @@
-const data = [
+const produits = [
         {
-            id: 1,
             name: "Nike Shoes",
             description: "Experience unmatched comfort and style with Nike's latest running shoes, featuring lightweight breathability and superior traction for any terrain. Elevate your performance while making a bold statement.",
             categorie:"Men",
@@ -9,7 +8,6 @@ const data = [
             newPrice: 95,
         },
         {
-            id: 2,
             name: "Adidas Shoes",
             description: "Experience unmatched comfort and style with Adidas's latest running shoes, featuring lightweight breathability and superior traction for any terrain. Elevate your performance while making a bold statement.",
             categorie:"Men",
@@ -18,7 +16,6 @@ const data = [
             newPrice: 89,
         },
         {
-            id:3,
             name: "Mens Green Long Sleeve",
             description:"Stay effortlessly stylish with this men's green long sleeve shirt, crafted from soft, breathable fabric for all-day comfort. Perfect for layering or wearing on its own, it's a versatile addition to any wardrobe.",
             categorie:"Men",
@@ -27,7 +24,6 @@ const data = [
             newPrice:39.99,
         },
         {
-            id:4,
             name: "FEATURE Beanies",
             description:"Make our new Watch Cap and Oversized beanies your go-to accessory this season. Introduced with a timeless and quality design, our latest additions are seen in a variety of colorways that can perfectly fit all styles.",
             categorie:"Men",
@@ -36,7 +32,6 @@ const data = [
             newPrice:19.99,
         },
         {
-            id:5,
             name: "Sweatshirt",
             description:"Cozy up in this classic sweatshirt, made from soft, warm fabric for ultimate comfort. Whether you're lounging at home or out and about, its timeless design and relaxed fit make it a go-to essential.",
             categorie:"Men",
@@ -45,7 +40,6 @@ const data = [
             newPrice:29.99,
         },
         {
-            id:6,
             name: "Cotton Jacket",
             description:"Layer up with this versatile cotton jacket, offering a perfect blend of style and comfort. With its durable fabric and sleek design, it is an ideal choice for cool, casual outings.",
             categorie:"Men",
@@ -54,7 +48,6 @@ const data = [
             newPrice:33,
         },
         {
-            id: 7,
             name: "Men's Denim Jacket",
             description: "Classic and rugged, this men's denim jacket adds a cool, timeless edge to any outfit. Perfect for layering over tees or hoodies.",
             categorie: "Men",
@@ -64,7 +57,6 @@ const data = [
             newPrice: 55,
         },
         {
-            id: 8,
             name: "Men's Leather Boots",
             description: "Step out in style with these durable men's leather boots. Crafted for comfort and designed for a sleek, polished look.",
             categorie: "Men",
@@ -74,7 +66,6 @@ const data = [
             newPrice: 129.99,
         },
         {
-            id: 9,
             name: "Men's Black Polo Shirt",
             description: "A wardrobe staple, this men's black polo shirt offers a blend of comfort and casual style. Ideal for everyday wear.",
             categorie: "Men",
@@ -83,7 +74,6 @@ const data = [
             newPrice: 29.99,
         },
         {
-            id: 10,
             name: "Men's Gray Hoodie",
             description: "Stay warm and comfortable in this men's gray hoodie, featuring a soft interior and a relaxed fit. Perfect for casual days.",
             categorie: "Men",
@@ -92,7 +82,6 @@ const data = [
             newPrice: 39.99,
         },
         {
-            id: 11,
             name: "Men's Chino Pants",
             description: "Versatile and stylish, these men's chino pants offer a comfortable fit with a modern, tailored silhouette.",
             categorie: "Men",
@@ -101,7 +90,6 @@ const data = [
             newPrice: 34.99,
         },
         {
-            id: 12,
             name: "Men's Casual Sneakers",
             description: "These casual sneakers are perfect for everyday wear, providing a blend of style and comfort with their cushioned sole and sleek design.",
             categorie: "Men",
@@ -110,7 +98,6 @@ const data = [
             newPrice: 49.99,
         },
         {
-            id: 13,
             name: "Women's Floral Dress",
             description: "Embrace elegance with this women's floral dress, featuring a flowy silhouette and delicate print that's perfect for any occasion.",
             categorie: "Women",
@@ -119,7 +106,6 @@ const data = [
             newPrice: 69.99,
         },
         {
-            id: 14,
             name: "Women's Leather Handbag",
             description: "This women's leather handbag combines style and functionality, offering plenty of space while keeping your look chic and sophisticated.",
             categorie: "Women",
@@ -128,7 +114,6 @@ const data = [
             newPrice: 95,
         },
         {
-            id: 15,
             name: "Women's High Heels",
             description: "Step into confidence with these women's high heels, designed to elevate your style with their sleek design and comfortable fit.",
             categorie: "Women",
@@ -137,7 +122,6 @@ const data = [
             newPrice: 79.99,
         },
         {
-            id: 16,
             name: "Women's Trench Coat",
             description: "A timeless piece, this women's trench coat is perfect for layering during transitional weather. Its classic design ensures it never goes out of style.",
             categorie: "Women",
@@ -146,7 +130,6 @@ const data = [
             newPrice: 109.99,
         },
         {
-            id: 17,
             name: "Women's Skinny Jeans",
             description: "These women's skinny jeans offer a flattering fit and are made from stretchy fabric for ultimate comfort. A must-have in any wardrobe.",
             categorie: "Women",
@@ -155,7 +138,6 @@ const data = [
             newPrice: 49.99,
         },
         {
-            id: 18,
             name: "Women's Running Shoes",
             description: "Stay active in style with these women's running shoes, featuring a lightweight design and superior support for your daily workouts.",
             categorie: "Women",
@@ -164,7 +146,6 @@ const data = [
             newPrice: 74.99,
         },
         {
-            id: 19,
             name: "Kid's Striped T-Shirt",
             description: "This kid's striped t-shirt is both playful and comfortable, perfect for everyday wear. Made from soft cotton for all-day comfort.",
             categorie: "Kids",
@@ -173,7 +154,6 @@ const data = [
             newPrice: 19.99,
         },
         {
-            id: 20,
             name: "Kid's Denim Overalls",
             description: "These kid's denim overalls are durable and stylish, perfect for active play. Pair with a t-shirt for a classic, casual look.",
             categorie: "Kids",
@@ -183,7 +163,6 @@ const data = [
             newPrice: 39.99,
         },
         {
-            id: 21,
             name: "Kid's Winter Coat",
             description: "Keep your little one warm and cozy with this kid's winter coat, featuring a padded interior and a stylish design.",
             categorie: "Kids",
@@ -193,7 +172,6 @@ const data = [
             newPrice: 55,
         },
         {
-            id: 22,
             name: "Kid's Sneakers",
             description: "These kid's sneakers are perfect for playtime, offering comfort and durability with a fun, colorful design.",
             categorie: "Kids",
@@ -202,7 +180,6 @@ const data = [
             newPrice: 34.99,
         },
         {
-            id: 23,
             name: "Kid's Hoodie",
             description: "Soft and cozy, this kid's hoodie is perfect for cooler days. It features a fun design that kids will love.",
             categorie: "Kids",
@@ -211,7 +188,6 @@ const data = [
             newPrice: 29.99,
         },
         {
-            id: 24,
             name: "Kid's Pajama Set",
             description: "This kid's pajama set is made from soft, breathable fabric, ensuring a comfortable night's sleep with a fun, playful design.",
             categorie: "Kids",
@@ -220,7 +196,6 @@ const data = [
             newPrice: 24.99,
         },
         {
-            id: 25,
             name: "Men's Wool Scarf",
             description: "Stay warm and stylish with this men's wool scarf. Its soft texture and versatile design make it a must-have for cold weather.",
             categorie: "Men",
@@ -229,7 +204,6 @@ const data = [
             newPrice: 29.99,
         },
         {
-            id: 26,
             name: "Women's Ankle Boots",
             description: "Step out in confidence with these women's ankle boots, featuring a sleek design and comfortable fit, perfect for any occasion.",
             categorie: "Women",
@@ -238,7 +212,6 @@ const data = [
             newPrice: 79.99,
         },
         {
-            id: 27,
             name: "Kid's Rain Boots",
             description: "Keep your child's feet dry and stylish with these kid's rain boots, featuring a fun design and waterproof construction.",
             categorie: "Kids",
@@ -247,7 +220,6 @@ const data = [
             newPrice: 29.99,
         },
         {
-            id: 28,
             name: "Women's Leather Belt",
             description: "Complete your outfit with this women's leather belt, offering a sleek design and durable construction for everyday wear.",
             categorie: "Women",
@@ -256,7 +228,6 @@ const data = [
             newPrice: 39.99,
         },
         {
-            id: 29,
             name: "Men's Beanie",
             description: "Keep warm with this men's beanie, designed with a snug fit and soft fabric for maximum comfort during cold days.",
             categorie: "Men",
@@ -265,69 +236,13 @@ const data = [
             newPrice: 19.99,
         },
         {
-            id: 30,
             name: "Women's Workout Leggings",
             description: "Move with ease in these women's workout leggings, offering a snug fit and breathable fabric for maximum comfort during exercise.",
             categorie: "Women",
             img: "https://i.pinimg.com/564x/be/6b/4f/be6b4f8680b6106e0026508a04dc3de2.jpg",
             oldPrice: 45,
             newPrice: 34.99,
-        },
-        {
-            id: 31,
-            name: "Kid's Graphic Tee",
-            description: "This kid's graphic tee is perfect for playful days, featuring a fun design and soft cotton fabric for all-day comfort.",
-            categorie: "Kids",
-            popular:true,
-            img: "https://i.pinimg.com/564x/bd/f0/70/bdf0701d3102cb064299b6bb04325f12.jpg",
-            oldPrice: 20,
-            newPrice: 14.99,
-        },
-        {
-            id: 32,
-            name: "Women's Maxi Skirt",
-            description: "This women's maxi skirt is a versatile addition to your wardrobe, offering a flowy silhouette and a comfortable fit.",
-            categorie: "Women",
-            img: "https://i.pinimg.com/564x/19/49/00/194900d5f7b4aabe6f3ecf5da52a5462.jpg",
-            oldPrice: 60,
-            newPrice: 49.99,
-        },
-        {
-            id: 33,
-            name: "Men's Casual Blazer",
-            description: "Add a touch of sophistication with this men's casual blazer, perfect for smart-casual occasions with its tailored fit and classic design.",
-            categorie: "Men",
-            img: "https://i.pinimg.com/564x/92/fb/b4/92fbb4d6567d6b2ce1de932eb765a031.jpg",
-            oldPrice: 120,
-            newPrice: 99.99,
-        },
-        {
-            id: 34,
-            name: "Kid's Sun Hat",
-            description: "Protect your child from the sun with this kid's sun hat, featuring a wide brim and a fun, colorful design.",
-            categorie: "Kids",
-            img: "https://i.pinimg.com/564x/2a/24/8f/2a248f1e39e31f0d9f18a0397759afc9.jpg",
-            oldPrice: 20,
-            newPrice: 14.99,
-        },
-        {
-            id: 35,
-            name: "Women's Peacoat",
-            description: "Stay warm and stylish in this women's peacoat, featuring a classic double-breasted design and a flattering fit.",
-            categorie: "Women",
-            img: "https://i.pinimg.com/736x/bd/e6/fc/bde6fc44060c576dbea8ee51559304d6.jpg",
-            oldPrice: 130,
-            newPrice: 109.99,
-        },
-        {
-            id: 36,
-            name: "Men's Flannel Shirt",
-            description: "Stay cozy in this men's flannel shirt, offering a comfortable fit and a classic plaid design that's perfect for layering.",
-            categorie: "Men",
-            img: "https://i.pinimg.com/564x/84/f1/cd/84f1cd725d84bc83b437fc3bfbe7590c.jpg",
-            oldPrice: 45,
-            newPrice: 34.99,
-        },
+        }
 ]; 
 
-export default data;
+module.exports = produits;
