@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import image1 from './images/image 1.png'
-import data from '../data'
+import {Context} from './../App'
 import { useNavigate } from 'react-router-dom';
 
 function Men() {
+  const {products} = useContext(Context) ;
   const navigate = useNavigate();
-  const menData = data.filter((item)=>{
+
+  const menData = products.filter((item)=>{
     return item.categorie === "Men";
   });
+
   const handleProductDetails = (id) =>
   {
     navigate(`/men/${id}`);
   }
+
   return (
     <div>
       <div className=' flex items-center mt-64 md:mx-80 mx-8 my-24 md:my-16 h-40 md:px-12 md:py-8 bg-yellow-100 rounded-2xl shadow-2xl'>
@@ -27,7 +31,7 @@ function Men() {
       <div className='md:flex md:flex-wrap'>
         {menData.map((item)=>{
           return(
-            <div key={item.id} onClick={()=>{handleProductDetails(item.id)}} className='cursor-pointer hover:scale-90 md:h-[350px] md:w-[16%] mx-48 md:mx-16 rounded-md md:my-16'>
+            <div key={item._id} onClick={()=>{handleProductDetails(item._id)}} className='cursor-pointer hover:scale-90 md:h-[350px] md:w-[16%] mx-48 md:mx-16 rounded-md md:my-16'>
               <img className='rounded-md h-[100%] w-[100%] shadow-2xl' src={item.img} alt="" />
               <h1 className='font-bold text-xl my-4'>{item.name}</h1>
             </div>

@@ -1,11 +1,12 @@
-import React from 'react'
-import data from '../data';
+import React, { useContext } from 'react'
 import image3 from './images/image 3.png';
 import { useNavigate } from 'react-router-dom';
+import { Context } from '../App';
 
 function Kids() {
+  const {products} = useContext(Context) ;
   const navigate = useNavigate();
-  const kidsData = data.filter((item)=>{
+  const kidsData = products.filter((item)=>{
     return item.categorie === "Kids";
   });
   const handleProductDetails = (id) =>
@@ -27,7 +28,7 @@ function Kids() {
       <div className='md:flex md:flex-wrap'>
         {kidsData.map((item)=>{
           return(
-            <div key={item.id} onClick={()=>{handleProductDetails(item.id)}} className='cursor-pointer hover:scale-90 md:h-[350px] md:w-[16%] mx-48 md:mx-16 rounded-md md:my-16'>
+            <div key={item._id} onClick={()=>{handleProductDetails(item._id)}} className='cursor-pointer hover:scale-90 md:h-[350px] md:w-[16%] mx-48 md:mx-16 rounded-md md:my-16'>
               <img className='rounded-md h-[100%] w-[100%] shadow-2xl' src={item.img} alt="" />
               <h1 className='font-bold text-xl my-4'>{item.name}</h1>
             </div>

@@ -1,41 +1,84 @@
-import React from 'react'
-import { useContext } from 'react'
-import { Context } from '../App'
-import '../App.css'
+// CartItems.js
+import React, { useEffect, useState } from 'react';
+import '../App.css';
 
 function CartItems() {
-  const {data, cartItems , removeFromCart} = useContext(Context);
-  return (
-    <div className='mx-24 my-24'>
-        <div className='cart font-bold text-xl'>
-            <p>Products</p>
-            <p>Title</p>
-            <p>Quantity</p>
-            <p>Total</p>
-            <p>Remove</p>
-        </div>
-        <hr className='h-0.5  bg-green-500 border-0'  />
-        {data.map((item)=>{
-            if(cartItems[item.id]>0)
-            {
-                return(
-                    <div>
-                        <div className='cart'>
-                            <img src={item.img} alt="" />
-                            <p>{item.name}</p>
-                            <button className='border-2 border-green-500 h-8 w-8 ml-12 rounded-md py-1'>{cartItems[item.id]}</button>
-                            <p className='ml-6'>{item.newPrice*cartItems[item.id]}$</p>
-                            <ion-icon class='text-3xl ml-8 cursor-pointer' onClick={()=>removeFromCart(item.id)} name="trash"></ion-icon>
-                        </div>
-                        <hr className='h-[1.25px]  bg-green-500 border-0' />
-                    </div>
-                )
-            }
-            return null;
+  const [cart, setCart] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/mycart", {
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+        });
+
+        const data = await res.json();
+        if (data.status === "success") {
+          setCart(data.data);
+          console.log(data.data);
         }
-        )}  
+      } catch (error) {
+        console.error("Erreur lors du fetch du panier :", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCart();
+  }, [token]);
+
+  if (loading) {
+    return <p className="text-center py-10">Loading your cart...</p>;
+  }
+
+  if (!cart || cart.products.length === 0) {
+    return <p className="text-center py-10 text-gray-500">Your cart is empty 🛒</p>;
+  }
+
+  // Calcul du prix total
+  const totalPrice = cart.products.reduce(
+    (acc, item) => acc + item.productID.newPrice * item.quantity,
+    0
+  );
+
+  return (
+    <div className="mx-24 my-24">
+      <hr className="h-0.5 bg-green-500 border-0 my-2" />
+
+      {cart.products.map((item) => (
+        <div
+          key={item._id}
+          className="grid grid-cols-5 gap-4 items-center py-4 border-b"
+        >
+          <img
+            src={item.productID.img}
+            alt={item.productID.name}
+            className="h-20 w-20 object-cover"
+          />
+          <p className="font-medium">{item.productID.name}</p>
+          <p className="text-center">{item.quantity}</p>
+          <p className="text-green-600 font-semibold">
+            ${(item.productID.newPrice * item.quantity).toFixed(2)}
+          </p>
+          <button
+            className="text-red-500 font-bold hover:underline"
+            onClick={() => console.log("Remove", item._id)}
+          >
+            X
+          </button>
+        </div>
+      ))}
+
+      <div className="text-right font-bold text-2xl mt-6">
+        Total: ${totalPrice.toFixed(2)}
+      </div>
     </div>
-  )
+  );
 }
 
-export default CartItems
+export default CartItems;
