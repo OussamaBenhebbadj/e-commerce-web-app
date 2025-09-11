@@ -25,6 +25,7 @@ app.post('/api/login', authControllers.login);
 //MyCart endpoints
 app.get('/api/mycart', authControllers.protect , MyCartControllers.getMyCart);
 app.put('/api/mycart', authControllers.protect , MyCartControllers.AddToMyCart);
+app.delete('/api/mycart', authControllers.protect , MyCartControllers.RemoveFromMyCart);
 
 
 module.exports = app ;

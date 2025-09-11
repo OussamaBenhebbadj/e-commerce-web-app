@@ -71,3 +71,34 @@ exports.AddToMyCart = async (req, res) => {
   }
 };
 
+exports.RemoveFromMyCart = async (req, res) => {
+  try {
+    const userId = req.user._id;    
+    const productId = req.body.id;   
+
+    const cart = await MyCart.findOneAndUpdate(
+      { userID: userId },
+      { $pull: { products: { productID: productId } } },
+      { new: true } 
+    ).populate("products.productID", "name newPrice img");;
+
+    if (!cart) {
+      return res.status(404).json({ status: "fail", message: "Cart not found" });
+    }
+
+    return res.status(200).json({
+      status: "success",
+      message: "Product removed",
+      data: cart,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: "error",
+      message: "Error removing product",
+      error: error.message,
+    });
+  }
+};
+
+
+

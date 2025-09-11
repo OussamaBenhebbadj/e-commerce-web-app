@@ -46,6 +46,24 @@ function CartItems() {
     0
   );
 
+  const handleRemoveFromCart = async (productid) => {
+    const res = await fetch("http://localhost:5000/api/mycart", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localStorage.getItem("token")}`
+        },
+        body: JSON.stringify({ id: productid })
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.status === "success") {
+        setCart(data.data);
+      } else {
+        alert("Erreur lors de la suppression");
+      }
+  }
+
   return (
     <div className="mx-24 my-24">
       <hr className="h-0.5 bg-green-500 border-0 my-2" />
@@ -67,7 +85,7 @@ function CartItems() {
           </p>
           <button
             className="text-red-500 font-bold hover:underline"
-            onClick={() => console.log("Remove", item._id)}
+            onClick={() => handleRemoveFromCart(item.productID._id)}
           >
             X
           </button>
